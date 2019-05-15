@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 517368158}
   - component: {fileID: 517368157}
   - component: {fileID: 517368156}
+  - component: {fileID: 517368160}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -279,6 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7085943ec63fa47f5b202691e82123ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  turnSpeed: 180
+  acceleration: 1
+  fieldSize: 3.5
+  blast: {fileID: 114296665170341860, guid: 38a7d29b546d643e3b3b6f9cb5040664, type: 2}
 --- !u!70 &517368157
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -347,12 +353,32 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 517368155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: -2.13, z: 0}
+  m_LocalPosition: {x: -0.09, y: 0.06, z: 0}
   m_LocalScale: {x: 0.140336, y: 0.140336, z: 0.140336}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &517368160
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517368155}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 0.28741637
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &754414965
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,9 +544,10 @@ GameObject:
   - component: {fileID: 869239863}
   - component: {fileID: 869239862}
   - component: {fileID: 869239864}
+  - component: {fileID: 869239865}
   m_Layer: 0
   m_Name: Boundary
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -593,7 +620,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -616,6 +643,26 @@ PolygonCollider2D:
       - {x: 0.45, y: 0.45}
       - {x: 0.45, y: -0.45}
       - {x: -0.45, y: -0.45}
+--- !u!50 &869239865
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869239861}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1062535048
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +674,7 @@ GameObject:
   - component: {fileID: 1062535051}
   - component: {fileID: 1062535050}
   - component: {fileID: 1062535049}
+  - component: {fileID: 1062535053}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Enemy
@@ -645,6 +693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72d309d76dfb428f95930eab585a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  fieldSize: 3.5
+  minTurn: 15
+  maxTurn: 15
 --- !u!58 &1062535050
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -719,6 +771,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1062535053
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062535048}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1079212493
 GameObject:
   m_ObjectHideFlags: 0
